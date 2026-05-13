@@ -3,7 +3,7 @@ project_RPS - __init__
 """
 
 # __init__ = collection of functions and constants
-# to be used in game_main.py with "from game_modules import *"
+# to be used in game_main.py with "from game_modules import "function_or_constant_name""
 # public API
 
 # --- CODE START ---
@@ -18,13 +18,18 @@ from .game_art import (
     show_rock_loss_final, show_paper_loss_final, show_scissors_loss_final,
 )
 
-from .game_loop import game_loop
-
 from .game_constants import (
     ROCK, PAPER, SCISSORS,
     WIN_CONDITION,
     YES, NO,
 )
+
+from .game_menu import game_menu
+
+from .game_loop import game_loop
+
+from .game_new import game_new
+
 
 # list __all__ = [exported, functions, and, constants]
 __all__ = [
@@ -34,10 +39,12 @@ __all__ = [
     "show_scissors_draw", "show_scissors_win", "show_scissors_loss",
     "show_rock_win_final", "show_paper_win_final", "show_scissors_win_final",
     "show_rock_loss_final", "show_paper_loss_final", "show_scissors_loss_final",
-    "game_loop",
     "ROCK", "PAPER", "SCISSORS",
     "WIN_CONDITION",
     "YES", "NO",
+    "game_menu",
+    "game_loop",
+    "game_new",
 ]
 
 # only this file can start code under "if __name__ == "__main__":"

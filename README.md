@@ -1,10 +1,27 @@
 # project_RPS
 
-Terminal-based Rock Paper Scissors game built in Python.
+A DOS-style Rock Paper Scissors game built in Python.
 
 ---
 
 ## Changelog
+
+### v2.0
+- General code cleanup
+
+- Improved input validation:
+  - No try/except required
+  - Custom validation logic implemented
+
+- Introduced `.bat` file for CMD execution:
+  - Screen stays static (no scrolling)
+  - Screen cleared before redraw (`os.system("clear/cls")`)
+
+- Implemented input overwrite:
+  - Invalid input is removed instantly
+  - Re-entry without adding new lines (`sys.stdout.write + flush`)
+
+---
 
 ### v1.0
 - First working prototype

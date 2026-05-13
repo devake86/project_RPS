@@ -4,25 +4,20 @@ project_RPS - game_main
 
 # --- CODE START ---
 
-# import * (all) from "game_modules/__init__.py"
-from game_modules import *
+# import show_header and game_loop from "game_modules/__init__.py"
+from game_modules import game_menu, game_loop, game_new
 
 # main game function
 def main():
 
-    # variables
-    new_game = 0
-
     # main loop
     while True:
-        show_header()
+        game_menu()
         game_loop()
 
-        # new game ; continue = go to beginning of while-loop ; return = close function
-        new_game = int(input(f"\n\n NEW GAME? [{YES}] YES [{NO}] NO: "))
-        if new_game == 1:
-            continue
-        else:
+        # if 0 for new game end function
+        # if 1 repeat main
+        if not game_new():
             return
 
 # only this file can start code under "if __name__ == "__main__":"
