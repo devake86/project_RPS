@@ -4,6 +4,14 @@ A DOS-style Rock Paper Scissors game built in Python, featuring ASCII animations
 
 ---
 
+## Screenshot
+
+images/screenshot_main_menu.png
+
+*Main Menu of the game (Windows CMD)*
+
+---
+
 ## Status
 Current version: v5.0-dev
 Last stable release: v4.0-stable
