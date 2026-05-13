@@ -40,26 +40,51 @@ def game_loop():
     rounds = 0
     score_player = 0
     score_computer = 0
+    cheating_computer = 0
 
     # main loop
     while True:
 
         # show rounds and score
         if score_player >= WIN_CONDITION and score_player - score_computer >= 2 or score_computer >= WIN_CONDITION and score_computer - score_player >= 2:
-            print(f"ROUND:    {rounds+1}")
-            print(f"PLAYER:   {score_player}")
-            print(f"COMPUTER: {score_computer}")
-            print(f"\n\n")
+            print(f"     ROUND:    {rounds}")
+            print(f"     PLAYER:   {score_player}")
+            print(f"     COMPUTER: {score_computer}")
+            print(f"\n")
+            if cheating_computer == 25:
+                print(f"     Computer cheated, with a probability of 25%!")
+            elif cheating_computer == 50:
+                print(f"     Computer cheated, with a probability of 50%!")
+            elif cheating_computer == 75:
+                print(f"     Computer cheated, with a probability of 75%!")
+            elif cheating_computer == 100:
+                print(f"     Computer cheated, with a probability of 100%!")
+            else:
+                print(f"     Computer played by the rules.")
+            print(f"\n")
             break
         else:
-            print(f"ROUND:    {rounds+1}")
-            print(f"PLAYER:   {score_player}")
-            print(f"COMPUTER: {score_computer}")
-            print(f"\n\n")
+            print(f"     ROUND:    {rounds}")
+            print(f"     PLAYER:   {score_player}")
+            print(f"     COMPUTER: {score_computer}")
+            print(f"\n")
+            if rounds == 0:
+                print(f"     Computer is waiting for your move.")
+            elif cheating_computer == 25:
+                print(f"     Computer cheated, with a probability of 25%!")
+            elif cheating_computer == 50:
+                print(f"     Computer cheated, with a probability of 50%!")
+            elif cheating_computer == 75:
+                print(f"     Computer cheated, with a probability of 75%!")
+            elif cheating_computer == 100:
+                print(f"     Computer cheated, with a probability of 100%!")
+            else:
+                print(f"     Computer played by the rules.")
+            print(f"\n")
 
         # player input ; if input correct end while-loop (break) and go to next line under while-loop
         while True:
-            input_player = input(f"[{ROCK}] ROCK [{PAPER}] PAPER [{SCISSORS}] SCISSORS: ").strip()
+            input_player = input(f"     [{ROCK}] ROCK [{PAPER}] PAPER [{SCISSORS}] SCISSORS: ").strip()
             # check if input is length of 1 and value is 1 or 2 or 3
             if len(input_player) == 1 and input_player in ("1", "2", "3"):
                 break
@@ -71,9 +96,7 @@ def game_loop():
             sys.stdout.write("\033[2K")
             sys.stdout.flush()
 
-        # computer random choice
-        input_computer = random.randint(1,3)
-
+        # if input_player = 1 or 2 or 3 change to int
         input_player_int = int(input_player)
 
         # clear screen before redraw new output
@@ -82,6 +105,84 @@ def game_loop():
         # clear = clear screen command for Linux/MacOS consoles
         os.system("cls" if os.name == "nt" else "clear")
 
+        # computer random choice with cheating computer 25%, 33%, 50% and 100%
+        while True:
+
+            cheating_computer = 0
+
+            # computer starts cheating 25% of the time after round 6
+            if rounds >= 6 and rounds < 12:
+                input_computer = random.randint(1,4)
+                if input_computer == 2 or input_computer == 3 or input_computer == 4:
+                    input_computer = random.randint(1,3)
+                    break
+                else:
+                    cheating_computer = 25
+                    if input_player_int == 1:
+                        input_computer = 2
+                        break
+                    elif input_player_int == 2:
+                        input_computer = 3
+                        break
+                    else:
+                        input_computer = 1
+                        break
+
+            # computer starts cheating 50% of the time after round 12
+            if rounds >= 12 and rounds < 18:
+                input_computer = random.randint(1,4)
+                if input_computer == 3 or input_computer == 4:
+                    input_computer = random.randint(1,3)
+                    break
+                else:
+                    cheating_computer = 50
+                    if input_player_int == 1:
+                        input_computer = 2
+                        break
+                    elif input_player_int == 2:
+                        input_computer = 3
+                        break
+                    else:
+                        input_computer = 1
+                        break
+
+            # computer starts cheating 75% of the time after round 18
+            if rounds >= 18 and rounds < 24:
+                input_computer = random.randint(1,4)
+                if input_computer == 4:
+                    input_computer = random.randint(1,3)
+                    break
+                else:
+                    cheating_computer = 75
+                    if input_player_int == 1:
+                        input_computer = 2
+                        break
+                    elif input_player_int == 2:
+                        input_computer = 3
+                        break
+                    else:
+                        input_computer = 1
+                        break
+
+            # computer starts cheating 100% of the time after round 24 ; "duh, winning!" - charlie sheen
+            if rounds >= 24:
+                cheating_computer = 100
+                if input_player_int == 1:
+                    input_computer = 2
+                    break
+                elif input_player_int == 2:
+                    input_computer = 3
+                    break
+                else:
+                    input_computer = 1
+                    break
+
+            # computer random choice 1, 2 or 3
+            else:
+                input_computer = random.randint(1,3)
+                break
+
+        # player choice vs computer choice with art output
         # player choices rock
         # rock draw
         if input_player_int == ROCK and input_computer == ROCK:

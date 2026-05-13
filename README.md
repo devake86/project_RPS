@@ -6,6 +6,20 @@ A DOS-style Rock Paper Scissors game built in Python.
 
 ## Changelog
 
+### v3.0
+- Introduced progressive cheating system:
+  - 25% chance (early rounds)
+  - 50%, 75%, up to 100% in later rounds
+
+- Added display for:
+  - Normal state
+  - Cheating status
+
+- Minor code restructuring for feature expansion
+- Added comments to `game_start.bat`
+
+---
+
 ### v2.0
 - General code cleanup
 
