@@ -5,12 +5,15 @@ project_RPS - game_loop
 # --- CODE START ---
 
 # import for all dependencies (functions and constants) needed in THIS file
+
 # random for input_computer 1, 2 or 3
 import random
+
 # os for screen clear and redraw art after input_player_int
 # os doesn't work in Thonny
 # to use start game with game_start.bat!
 import os
+
 # used to delete input line if not correct before it is shown again (screen scroll prevention)
 # with sys.stdout.write /.flush
 # sys doesn't work in Thonny
@@ -18,16 +21,25 @@ import os
 import sys
 
 from .game_art import (
-    show_rock_draw, show_rock_win, show_rock_loss,
-    show_paper_draw, show_paper_win, show_paper_loss,
-    show_scissors_draw, show_scissors_win, show_scissors_loss,
-    show_rock_win_final, show_paper_win_final, show_scissors_win_final,
+    show_rock_loss, show_paper_loss, show_scissors_loss,
     show_rock_loss_final, show_paper_loss_final, show_scissors_loss_final,
 )
 
 from .game_constants import (
     ROCK, PAPER, SCISSORS,
     WIN_CONDITION,
+)
+
+from .game_animations import (
+    show_rock_draw_animation,
+    show_rock_win_animation,
+    show_rock_win_final_animation,
+    show_paper_draw_animation,
+    show_paper_win_animation,
+    show_paper_win_final_animation,
+    show_scissors_draw_animation,
+    show_scissors_win_animation,
+    show_scissors_win_final_animation,
 )
 
 # game loop function
@@ -45,7 +57,7 @@ def game_loop():
     # main loop
     while True:
 
-        # show rounds and score
+        # if win condition show final rounds and score
         if score_player >= WIN_CONDITION and score_player - score_computer >= 2 or score_computer >= WIN_CONDITION and score_computer - score_player >= 2:
             print(f"     ROUND:    {rounds}")
             print(f"     PLAYER:   {score_player}")
@@ -63,6 +75,8 @@ def game_loop():
                 print(f"     Computer played by the rules.")
             print(f"\n")
             break
+
+        # else show rounds and score
         else:
             print(f"     ROUND:    {rounds}")
             print(f"     PLAYER:   {score_player}")
@@ -90,6 +104,9 @@ def game_loop():
                 break
 
             # after enter from input which creates new line
+            # stdin = standard input
+            # stdout = standard output
+            # stderr = standard error output
             # sys.stdout.write("\033[F") = go up one line and ("\033[2K") to delete line
             # .flush() = show everything written in .write immediately
             sys.stdout.write("\033[F")
@@ -186,15 +203,15 @@ def game_loop():
         # player choices rock
         # rock draw
         if input_player_int == ROCK and input_computer == ROCK:
-            show_rock_draw()
+            show_rock_draw_animation()
 
         # rock win
         elif input_player_int == ROCK and input_computer == SCISSORS:
             score_player += 1
             if score_player >= WIN_CONDITION and score_player - score_computer >= 2:
-                show_rock_win_final()
+                show_rock_win_final_animation()
             else:
-                show_rock_win()
+                show_rock_win_animation()
 
         # rock loss
         elif input_player_int == ROCK and input_computer == PAPER:
@@ -207,15 +224,15 @@ def game_loop():
         # player choices paper
         # paper draw
         elif input_player_int == PAPER and input_computer == PAPER:
-            show_paper_draw()
+            show_paper_draw_animation()
 
         # paper win
         elif input_player_int == PAPER and input_computer == ROCK:
             score_player += 1
             if score_player >= WIN_CONDITION and score_player - score_computer >= 2:
-                show_paper_win_final()
+                show_paper_win_final_animation()
             else:
-                show_paper_win()
+                show_paper_win_animation()
 
         # paper loss
         elif input_player_int == PAPER and input_computer == SCISSORS:
@@ -228,15 +245,15 @@ def game_loop():
         # player choices scissors
         # scissors draw
         elif input_player_int == SCISSORS and input_computer == SCISSORS:
-            show_scissors_draw()
+            show_scissors_draw_animation()
 
         # scissors win
         elif input_player_int == SCISSORS and input_computer == PAPER:
             score_player += 1
             if score_player >= WIN_CONDITION and score_player - score_computer >= 2:
-                show_scissors_win_final()
+                show_scissors_win_final_animation()
             else:
-                show_scissors_win()
+                show_scissors_win_animation()
 
         # scissors loss
         else:
@@ -248,6 +265,7 @@ def game_loop():
 
         # rounds count +1
         rounds += 1
+
 
 # only this file can start code under "if __name__ == "__main__":"
 # will not be started when imported by another file

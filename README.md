@@ -6,6 +6,31 @@ A DOS-style Rock Paper Scissors game built in Python.
 
 ## Changelog
 
+### v4.0-stable
+- Introduced "Cheating Computer" mode based on classic gameplay
+- Considered stable after final gameplay testing
+
+- Code fully documented
+- Centralized imports via `__init__.py` and `__all__`
+
+- Added start menu ("Start game? Yes/No")
+
+- Replaced static ASCII art with animated frames
+- Implemented animation system in `game_animations.py`
+
+- Completed animations:
+  - Rock / Paper / Scissors (draw, win, final win)
+
+- Added still frames:
+  - Loss states
+  - Computer win
+
+- Design decision:
+  - No flipped animations for losses to improve game flow
+  - Focus remains on player wins and draws
+
+---
+
 ### v3.0
 - Introduced progressive cheating system:
   - 25% chance (early rounds)
