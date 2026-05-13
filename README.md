@@ -6,9 +6,11 @@ A DOS-style Rock Paper Scissors game built in Python, featuring ASCII animations
 
 ## Screenshot
 
+Preview of the main menu:
+
 ![Main Menu](images/screenshot_main_menu.png)
 
-*Main Menu of the game (Windows CMD)*
+*Main menu of the game (Windows CMD, ASCII UI)*
 
 ---
 
