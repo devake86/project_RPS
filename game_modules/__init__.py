@@ -47,6 +47,13 @@ from .game_art import (
     show_scissors_loss, show_scissors_loss_final,
 )
 
+
+from .game_sounds import (
+    sound_sword_clashhit, sound_sword_slice, sound_whoosh_motion,
+    sound_blood_splatter_explode, sound_body_rips_apart, sound_breeze_of_blood,
+    sound_snow_step_1,
+)
+
 from .game_animations import (
     show_rock_draw_animation,
     show_rock_win_animation,
@@ -61,16 +68,33 @@ from .game_animations import (
 
 from .game_constants import (
     ROCK, PAPER, SCISSORS,
-    WIN_CONDITION,
+    MINIMUM_POINTS,
     YES, NO,
 )
 
 from .game_menu import game_menu
 
-from .game_loop import game_loop
+from .game_menu_sneak_a_peek import game_menu_sneak_a_peek
+
+from .game_menu_just_quiz import game_menu_just_quiz
+
+from .game_menu_sneak_a_peek_ingame import game_menu_sneak_a_peek_ingame
+
+from .game_menu_just_quiz_ingame import game_menu_just_quiz_ingame
+
+from .game_loop_classic import game_loop_classic
+
+from .game_loop_cheating_computer import game_loop_cheating_computer
+
+from .game_loop_sneak_a_peek_quiz import game_loop_sneak_a_peek_quiz
+
+from .game_loop_just_quiz import game_loop_just_quiz
 
 from .game_new import game_new
 
+from .game_loop_sneak_a_peek_quiz_cache_clear import game_loop_sneak_a_peek_quiz_cache_clear_inmenu, game_loop_sneak_a_peek_quiz_cache_clear_ingame
+
+from .game_loop_just_quiz_cache_clear import game_loop_just_quiz_cache_clear_inmenu, game_loop_just_quiz_cache_clear_ingame
 
 # list __all__ = [exported, functions, and, constants]
 __all__ = [
@@ -109,6 +133,9 @@ __all__ = [
     "show_scissors_win_21", "show_scissors_win_22", "show_scissors_win_23", "show_scissors_win_24",
     "show_scissors_win_final_1", "show_scissors_win_final_2",
     "show_scissors_loss", "show_scissors_loss_final",
+    "sound_sword_clashhit", "sound_sword_slice", "sound_woosh_motion",
+    "sound_blood_splatter_explode", "sound_body_rips_apart", "sound_breeze_of_blood",
+    "sound_snow_step_1",
     "show_rock_draw_animation",
     "show_rock_win_animation",
     "show_rock_win_final_animation",
@@ -119,11 +146,16 @@ __all__ = [
     "show_scissors_win_animation",
     "show_scissors_win_final_animation",
     "ROCK", "PAPER", "SCISSORS",
-    "WIN_CONDITION",
+    "MINIMUM_POINTS",
     "YES", "NO",
     "game_menu",
-    "game_loop",
+    "game_menu_sneak_a_peek",
+    "game_loop_classic",
+    "game_loop_cheating_computer",
+    "game_loop_sneak_a_peek_quiz",
     "game_new",
+    "game_loop_sneak_a_peek_quiz_cache_clear_inmenu",
+    "game_loop_sneak_a_peek_quiz_cache_clear_ingame",
 ]
 
 # only this file can start code under "if __name__ == "__main__":"

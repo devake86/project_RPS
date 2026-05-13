@@ -8,7 +8,7 @@ project_RPS - game_constants
 ROCK = 1
 PAPER = 2
 SCISSORS = 3
-WIN_CONDITION = 3
+MINIMUM_POINTS = 3
 YES = 1
 NO = 0
 

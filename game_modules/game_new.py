@@ -19,7 +19,7 @@ def game_new():
     # break = end while-loop-> go to next line -> no new lines -> starts main() while-loop again with show_header()
     # return = close whole function
     while True:
-        input_new_game = input(f"     NEW GAME? [{YES}] YES [{NO}] NO: ").strip()
+        input_new_game = input(f"     NEW GAME? [{YES}] YES [{NO}] QUIT TO MAIN MENU: ").strip()
 
         # check if input is length of not 1 or value is not 1 or 0
         if len(input_new_game) !=1 or input_new_game not in ("1","0"):

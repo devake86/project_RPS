@@ -1,0 +1,12 @@
+REM = remark
+
+REM disables commands, for example "py game_main.py" will not show in window
+@echo off
+
+REM changes the path to were the batch-file is in; drive (d) + path (p) der batch-file (0)
+cd /d "%~dp0"
+
+REM starts python-script with python-launcher in new maxed CMD window and then waits
+start "" /max cmd /c "py game_main.py & echo. & pause"
+
+
