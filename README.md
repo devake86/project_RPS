@@ -16,6 +16,7 @@ Preview of the main menu:
 
 ## Status
 Current version: v5.0-dev
+
 Last stable release: v4.0-stable
 
 Designed for Windows CMD (.bat startup).
